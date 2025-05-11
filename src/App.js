@@ -11,7 +11,7 @@ import ResultsScreen from './components/ResultsScreen';
 import ChoiceScreen from './components/ChoiceScreen';
 import MemoryRoomScreen from './components/MemoryRoomScreen';
 import ScreenTooSmall from './components/ScreenTooSmall';
-import levels from './data/levels.json';
+import rawLevels from './data/levels.json';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -24,10 +24,18 @@ function App() {
   const [showResultForm, setShowResultForm] = useState(false);
   const [showRating, setShowRating] = useState(false);
   const [memoryRoomUsed, setMemoryRoomUsed] = useState(false);
-  const [isTooSmall, setIsTooSmall] = useState(window.innerWidth < 750); 
+  const [isTooSmall, setIsTooSmall] = useState(window.innerWidth < 750);
 
+  function shuffleOptions(levels) {
+    return levels.map(level => {
+      const entries = Object.entries(level.options);
+      const shuffled = Object.fromEntries(entries.sort(() => Math.random() - 0.5));
+      return { ...level, options: shuffled };
+    });
+  }
 
-  
+  const levels = shuffleOptions(rawLevels);
+
   useEffect(() => {
     const handleResize = () => {
       setIsTooSmall(window.innerWidth < 750);
@@ -89,6 +97,17 @@ function App() {
     return <ChoiceScreen onChoose={(choice) => setEndingChoice(choice)} />;
   }
 
+  if (currentLevel >= levels.length && !endingChoice) {
+    return (
+      <FinalScreen
+        hero={selectedHero}
+        remainingTime={remainingTime}
+        endingKey={endingKey}
+        onSave={() => setShowResultForm(true)}
+      />
+    );
+  }
+
   if (endingChoice === 'memory-room') {
     return (
       <MemoryRoomScreen
@@ -117,6 +136,7 @@ function App() {
       key={currentLevel}
       hero={selectedHero}
       levelIndex={currentLevel}
+      levels={levels}
       onNext={() => setCurrentLevel((prev) => prev + 1)}
       onUpdateTime={(spent) => setRemainingTime((prev) => prev - spent)}
       remainingTime={remainingTime}

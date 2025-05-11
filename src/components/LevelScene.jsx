@@ -3,31 +3,20 @@ import '../styles/LevelScene.css';
 import portraits from '../data/portraitMap';
 import backgroundMap from '../data/backgroundMap';
 
-import rawLevels from '../data/levels.json';
-
-function shuffleOptions(levels) {
-  return levels.map(level => {
-    const entries = Object.entries(level.options);
-    const shuffled = Object.fromEntries(entries.sort(() => Math.random() - 0.5));
-    return { ...level, options: shuffled };
-  });
-}
-
-const levels = shuffleOptions(rawLevels);
-
 const LevelScene = ({
   hero,
   levelIndex = 0,
+  levels,
   onNext,
   onUpdateTime,
   remainingTime,
   onRecordLevel
 }) => {
-  const level = levels[levelIndex];
+  const level = levels[levelIndex] || {};
   const heroKey = hero.toLowerCase();
 
   const [selectedOption, setSelectedOption] = useState(null);
-  const [emotion, setEmotion] = useState(level.heroEmotion);
+  const [emotion, setEmotion] = useState(level.heroEmotion || 'neutral');
   const [reaction, setReaction] = useState('');
   const [showCard, setShowCard] = useState(false);
   const [timeSpent, setTimeSpent] = useState(null);
@@ -38,6 +27,10 @@ const LevelScene = ({
     }, 500);
     return () => clearTimeout(timer);
   }, []);
+
+  if (!level.heroEmotion || !level.options) {
+    return <div className="level-error"><p>Уровень не найден или повреждён.</p></div>;
+  }
 
   const portraitKey = `${heroKey}_${emotion}`;
   const portraitSrc = portraits[portraitKey] || portraits[`${heroKey}_neutral`];
@@ -59,7 +52,7 @@ const LevelScene = ({
     setReaction(newReaction);
     setTimeSpent(timeLost);
     onUpdateTime(timeLost);
-    onRecordLevel(isSuccess); 
+    onRecordLevel(isSuccess);
   };
 
   return (
