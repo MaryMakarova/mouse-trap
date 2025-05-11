@@ -1,0 +1,156 @@
+.memory-room-screen {
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100vw;
+  background-image: url('../assets/endings/choice_background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text);
+  font-family: var(--font-main);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.memory-phase {
+  max-width: 500px;
+  background: var(--color-bg-soft);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: 0 0 20px var(--color-glow-mid);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.memory-text p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.memory-hero {
+  max-width: 200px;
+  margin-bottom: 2rem;
+}
+
+.glitch-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  width: auto;
+  max-height: 200px;
+
+}
+
+.glitch-image {
+  display: block;
+  width: auto;
+  max-height: 200px;
+  filter: brightness(1.2) contrast(1.1);
+  animation: glitchMove 2s infinite ease-in-out;
+}
+
+.glitch-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  mix-blend-mode: screen;
+  opacity: 0.6;
+  animation: glitchColor 1.2s infinite;
+}
+
+.glitch-layer.r {
+  filter: drop-shadow(-2px 0 red);
+}
+
+.glitch-layer.b {
+  filter: drop-shadow(2px 0 blue);
+}
+
+@keyframes glitchMove {
+  0% {
+    transform: none;
+  }
+
+  15% {
+    transform: translate(1px, -1px) skew(0.3deg);
+  }
+
+  30% {
+    transform: translate(-2px, 2px) skew(-0.3deg);
+  }
+
+  45% {
+    transform: translate(2px, -1px) skew(0.2deg);
+  }
+
+  60% {
+    transform: none;
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes glitchColor {
+  0% {
+    opacity: 0.4;
+    transform: translate(0);
+  }
+
+  10% {
+    opacity: 0.6;
+    transform: translate(-1px, 0);
+  }
+
+  20% {
+    opacity: 0.3;
+    transform: translate(1px, 1px);
+  }
+
+  30% {
+    opacity: 0.5;
+    transform: translate(0, -1px);
+  }
+
+  100% {
+    opacity: 0.4;
+    transform: translate(0);
+  }
+}
+
+.memory-room-screen {
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0;
+}
+
+.memory-phase {
+  animation: fadeSlideIn 1s ease-out 0.5s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-slide-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 0.6s ease-out forwards;
+}

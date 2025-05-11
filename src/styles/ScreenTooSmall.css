@@ -1,0 +1,25 @@
+.screen-too-small {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--color-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing);
+    box-sizing: border-box;
+    z-index: 9999;
+  }
+  
+  .screen-too-small__message {
+    color: var(--color-accent);
+    font-family: var(--font-title);
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 1.6;
+    max-width: 500px;
+    text-shadow: 0 0 6px var(--color-glow-mid);
+  }
+  

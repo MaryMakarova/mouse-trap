@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "title": "The Chamber of Broken Clocks",
+    "description": "You enter a vast room filled with giant broken gears and swinging pendulums...",
+    "heroReaction": "This place feels like it could collapse any second... but there has to be a way through.",
+    "options": {
+      "twitch": "Attempt to slip between the swinging pendulums",
+      "bristle": "Examine the largest gear to check if it's blocking the way",
+      "gizmo": "Inspect a rusted crank mechanism on the side wall",
+      "whisper": "Look around for cracks or gaps in the stonework"
+    },
+    "successReaction": "You passed through the chamber swiftly and without injury. Time barely touched you.",
+    "failureReaction": "You struggled through, dodging and climbing at the wrong times. It cost you more time than it should have.",
+    "heroEmotion": "thoughtful",
+    "backgroundImage": "level1_chamber.png",
+    "timePenalty": {
+      "success": 2,
+      "failure": 15
+    }
+  },
+  {
+    "id": 2,
+    "title": "Molok\u2019s Boiler Room",
+    "description": "Scorching heat, clouds of steam, and roaring furnaces fill the air. Steam bursts from pipes at irregular intervals.",
+    "heroReaction": "Even my fur can't protect me from this heat... I have to move carefully.",
+    "options": {
+      "twitch": "Time your movements to avoid bursts of steam",
+      "bristle": "Test a pipe panel that looks loose",
+      "gizmo": "Study the control console near the boiler",
+      "whisper": "Investigate behind the furnace where the heat seems less intense"
+    },
+    "successReaction": "You navigated the heat like you were born in it. Clean, fast, efficient.",
+    "failureReaction": "You got singed, turned around, and wasted time trying to stay cool. But you made it out.",
+    "heroEmotion": "frightened",
+    "backgroundImage": "level2_boiler.png",
+    "timePenalty": {
+      "success": 4,
+      "failure": 17
+    }
+  },
+  {
+    "id": 3,
+    "title": "The Gear Gallery",
+    "description": "A corridor of moving tiles and trapdoors. Each step must be calculated—some tiles fall open at the slightest touch.",
+    "heroReaction": "Trap after trap… This place was made to catch minds, not just mice.",
+    "options": {
+      "twitch": "Try hopping from one tile to the next, testing them as you go",
+      "bristle": "Push down on one of the loose floor tiles with your weight",
+      "gizmo": "Look beneath a control plate mounted to the wall",
+      "whisper": "Feel along the base of the wall for irregularities"
+    },
+    "successReaction": "You danced over the danger or bent it to your will. Well played.",
+    "failureReaction": "Your missteps triggered more than one trap... but you're still standing. Just barely.",
+    "heroEmotion": "neutral",
+    "backgroundImage": "level3_gallery.png",
+    "timePenalty": {
+      "success": 6,
+      "failure": 19
+    }
+  },
+  {
+    "id": 4,
+    "title": "The Archive of Secrets",
+    "description": "An ancient library filled with scrolls, maps, and mysterious contraptions. Bookshelves seem to shift positions as you move.",
+    "heroReaction": "This isn’t just a library. Something—or someone—is hiding secrets here.",
+    "options": {
+      "twitch": "Climb the side of a shifting bookshelf to get a better view",
+      "bristle": "Move a particularly heavy shelf that doesn’t seem fully attached",
+      "gizmo": "Check a mechanical drawer buzzing faintly in the corne",
+      "whisper": "Flip through old documents to look for symbols or patterns"
+    },
+    "successReaction": "The secrets unfolded easily beneath your touch. You didn’t even break a sweat.",
+    "failureReaction": "You knocked over a few scrolls and tripped a mechanism or two... but eventually found your way.",
+    "heroEmotion": "thoughtful",
+    "backgroundImage": "level4_archive.png",
+    "timePenalty": {
+      "success": 5,
+      "failure": 16
+    }
+  },
+  {
+    "id": 5,
+    "title": "The Core of the Labyrinth",
+    "description": "You reach the dome-shaped heart of the maze. Pipes, gears, and glowing energy pulses surround the massive control core.",
+    "heroReaction": "This is it. The core. One wrong move here could blow the whole maze sky-high.",
+    "options": {
+      "twitch": "Quickly scan the control levers for a possible pattern",
+      "bristle": "Wedge something into the vibrating machine to slow it down",
+      "gizmo": "Analyze the power conduits feeding into the core",
+      "whisper": "Check behind loose panels for emergency controls"
+    },
+    "successReaction": "Your skill turned chaos into control. The machine obeys you now.",
+    "failureReaction": "Sparks flew. The floor shook. You got it under control... eventually. But time wasn’t kind.",
+    "heroEmotion": "frightened",
+    "backgroundImage": "level5_core.png",
+    "timePenalty": {
+      "success": 3,
+      "failure": 18
+    }
+  }
+]

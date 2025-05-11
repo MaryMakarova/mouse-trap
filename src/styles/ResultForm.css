@@ -1,0 +1,51 @@
+.result-form-screen {
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100vw;
+  background-image: url('../assets/rating_board.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-form-card {
+  background: var(--color-bg);
+  padding: 3rem;
+  border-radius: var(--radius);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 0 15px var(--color-glow-mid);
+  color: var(--color-text);
+  font-family: var(--font-main);
+}
+
+.result-form-card h2 {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  color: var(--color-highlight);
+  margin-bottom: 1.5rem;
+}
+
+.result-form-card input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-accent);
+  background-color: var(--color-black);
+  color: var(--color-accent);
+  font-family: var(--font-title);
+  text-align: center;
+  outline: none;
+  margin-bottom: 1.5rem;
+  box-sizing: border-box;
+  transition: border 0.2s ease;
+}
+
+.result-form-card input::placeholder {
+  color: #aa8d5c;
+  opacity: 0.8;
+}

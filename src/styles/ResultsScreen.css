@@ -1,0 +1,13 @@
+.results-screen {
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
